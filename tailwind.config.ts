@@ -13,9 +13,14 @@ const config = {
     container: {
       center: true,
       padding: "30px",
+      screens: {
+        xl: "1600px",
+      },
     },
     screens: {
-      "2xl": "1400px",
+      "4xl": "1920px",
+      "3xl": "1600px",
+      "2xl": "1440px",
       xl: "1200px",
       lg: "1024px",
       md: "768px",

@@ -1,22 +1,28 @@
-import { CarouselDemo } from "./components/main-components/carusel";
-import { getBanner } from "@/service/banner";
-import { SidebarMenu } from "./components/main-components/sidebar-menu";
-import { getCategory } from "@/service/category";
+import { SidebarMenu } from "./components/main-components/sidebar/sidebar-menu";
+import OurServices from "./components/main-components/our-services";
+import { LittleBanner } from "./components/main-components/little-banner";
+import { Banner } from "./components/main-components/banner/banner";
+import { TopCategories } from "./components/main-components/top-categories/top-categories";
 
-export default async function Home() {
-  const data = await getBanner();
-  const categories=await getCategory()
-  console.log(categories);
-
+export default function Home() {
   return (
-    <main className="bg-slate-100">
-      <div className="flex h-[80vh] gap-5 justify-between px-[15px] md:p-[30px]">
-        <div className="w-1/5 hidden lg:flex bg-white p-3 rounded-lg overflow-y-scroll">
-          <SidebarMenu data={categories}/>
+    <main className="bg-slate-100 dark:bg-black">
+      <div className="container flex h-[80vh] gap-5 justify-between px-[15px] md:p-[30px]">
+        <div className="w-1/5 hidden lg:flex light:bg-white dark:bg-black p-3 rounded-lg overflow-y-scroll">
+          <SidebarMenu />
         </div>
         <div className="lg:w-4/5">
-          <CarouselDemo data={data.results} />
+          <Banner />
         </div>
+      </div>
+      <div className="container px-[15px] md:px-[30px]">
+        <OurServices />
+      </div>
+      <div className="container py-[30px]">
+        <LittleBanner />
+      </div>
+      <div className="container px-[15px] md:px-[30px]">
+        <TopCategories />
       </div>
     </main>
   );

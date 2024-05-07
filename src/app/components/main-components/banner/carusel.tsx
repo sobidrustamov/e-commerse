@@ -1,4 +1,6 @@
+'use client'
 import * as React from "react";
+import Autoplay from "embla-carousel-autoplay";
 
 import { Card, CardContent } from "@/components/ui/card";
 import {
@@ -11,21 +13,37 @@ import {
 
 interface Props {
   data: {
-    id: number;
-    created_at: string;
-    updated_at: string;
-    image: string;
-    title: string;
-    description: string;
-  }[];
+    count: number;
+    next: string | null;
+    previous: string | null;
+    results: [
+      {
+        id: number;
+        created_at: string;
+        updated_at: string;
+        image: string;
+        title: string;
+        description: string;
+      }
+    ];
+  };
 }
 
-export const CarouselDemo: React.FC<Props> = ({ data }) => {
+export const CarouselPlugin: React.FC<Props> = ({ data }) => {
+  const plugin = React.useRef(
+    Autoplay({ delay: 3000, stopOnInteraction: false })
+  );
+
   return (
-    <Carousel className="w-full h-[70vh] relative">
+    <Carousel 
+      plugins={[plugin.current]}
+      className="w-full h-[70vh] relative"
+      onMouseEnter={plugin.current.stop}
+      onMouseLeave={plugin.current.reset}
+    >
       <CarouselContent>
-        {data.map((item, index) => (
-          <CarouselItem key={index}>
+        {data.results.map((item, index) => (
+          <CarouselItem key={index} >
             <Card>
               <CardContent className="flex  items-center justify-center">
                 <img

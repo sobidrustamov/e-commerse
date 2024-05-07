@@ -1,12 +1,12 @@
+"use client";
 import React from "react";
-import Logo from "@/images/logo.jpg";
+import Logo from "@/images/logo.png";
 import Image from "next/image";
 import { FaBars } from "react-icons/fa";
 import { SlEarphonesAlt } from "react-icons/sl";
 import { SlLayers } from "react-icons/sl";
 import { FaRegStar } from "react-icons/fa";
 import { BsHandbag } from "react-icons/bs";
-import { FaChevronDown } from "react-icons/fa";
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
 import { InputDemo } from "./input";
@@ -16,7 +16,7 @@ import { ModeToggle } from "./dark-mode-button";
 export const Header = () => {
   return (
     <div>
-      <div className="text-center border-b-2 hidden sm:flex sm:flex-col md:flex-row md:items-center justify-between  px-4 md:px-8">
+      <div className="container text-center border-b-2 hidden sm:flex sm:flex-col md:flex-row md:items-center justify-between ">
         <p className="text-sm">Welcome to Worldwide Electronics Store</p>
         <ul className="flex items-center justify-center py-3">
           <li className="lg:px-5 pr-5 lg:border-e-2">
@@ -37,7 +37,7 @@ export const Header = () => {
           </li>
         </ul>
       </div>
-      <div className="flex justify-between items-center border-b-2 py-5 sm:px-[30px] px-[15px] sm:py-6">
+      <div className="container flex justify-between items-center border-b-2 py-5 sm:px-[30px] px-[15px] sm:py-6">
         <div>
           <Link href="#">
             <Image src={Logo} alt="logo" priority />
@@ -52,8 +52,10 @@ export const Header = () => {
         </div>
         <form className="hidden w-[45%] lg:flex items-center rounded-[40px] border-2 border-yellow-400 overflow-hidden">
           {/* <SelectDemo /> */}
-          <InputDemo/>
-          <label htmlFor='search' className="bg-yellow-400 py-3 px-5">Search</label>
+          <InputDemo />
+          <label htmlFor="search" className="bg-yellow-400 py-3 px-5">
+            Search
+          </label>
         </form>
         <div className="gap-8 hidden lg:flex">
           <button>
@@ -86,7 +88,7 @@ export const Header = () => {
           <FaBars className="w-[17.15px] h-[20px] text-[#777] " />
         </div>
       </div>
-      <div className="hidden lg:flex justify-between items-center border-b-2 sm:shadow-md  sm:px-[30px] px-[15px] sm:py-3">
+      <div className="container hidden lg:flex justify-between items-center border-b-2 sm:shadow-md  sm:px-[30px] px-[15px] sm:py-3">
         <div>
           <ul className="flex gap-5">
             <li className="flex items-center gap-1">
