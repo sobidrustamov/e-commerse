@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { Header } from "./components/header/header";
 import { ThemeProvider } from "@/providers/dark-mode-provider";
+import { ReduxProvider } from "@/providers/redux-provider";
 import { Footer } from "./components/footer/footer";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -18,8 +19,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" >
       <body className={inter.className}>
+        <ReduxProvider>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -30,6 +32,7 @@ export default function RootLayout({
           {children}
           <Footer />
         </ThemeProvider>
+        </ReduxProvider>
       </body>
     </html>
   );

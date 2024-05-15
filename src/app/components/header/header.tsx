@@ -1,19 +1,21 @@
-"use client";
 import React from "react";
-import Logo from "@/images/logo.png";
-import Image from "next/image";
-import { FaBars } from "react-icons/fa";
 import { SlEarphonesAlt } from "react-icons/sl";
 import { SlLayers } from "react-icons/sl";
 import { FaRegStar } from "react-icons/fa";
 import { BsHandbag } from "react-icons/bs";
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
-import { InputDemo } from "./input";
-import { SelectDemo } from "./select";
-import { ModeToggle } from "./dark-mode-button";
+import { InputDemo } from "./components-header/input";
+import { SelectDemo } from "./components-header/select";
+import { ModeToggle } from "./components-header/dark-mode-button";
+import SidebarMobile from "./components-header/sidebar-menu";
+import dynamic from "next/dynamic";
+const CartCount = dynamic(() => import("./components-header/cart-count"), {
+  ssr: false,
+});
 
-export const Header = () => {
+
+export const Header = async () => {
   return (
     <div>
       <div className="container text-center border-b-2 hidden sm:flex sm:flex-col md:flex-row md:items-center justify-between ">
@@ -39,8 +41,8 @@ export const Header = () => {
       </div>
       <div className="container flex justify-between items-center border-b-2 py-5 sm:px-[30px] px-[15px] sm:py-6">
         <div>
-          <Link href="#">
-            <Image src={Logo} alt="logo" priority />
+          <Link href="/" className="text-[36px] font-[900] uppercase">
+            Amera
           </Link>
         </div>
         <div className="hidden xl:flex items-center gap-2">
@@ -76,16 +78,16 @@ export const Header = () => {
             </div>
             <p className="text-sm">Favorites</p>
           </Link>
-          <button>
+          <Link href='/cart'>
             <div className="flex items-start gap-1">
               <BsHandbag className="w-[30px] h-[32px]" />
-              <Badge className="bg-yellow-400">0</Badge>
+              <CartCount/>
             </div>
             <p className="text-sm">My Cart</p>
-          </button>
+          </Link>
         </div>
         <div className="lg:hidden">
-          <FaBars className="w-[17.15px] h-[20px] text-[#777] " />
+          <SidebarMobile />
         </div>
       </div>
       <div className="container hidden lg:flex justify-between items-center border-b-2 sm:shadow-md  sm:px-[30px] px-[15px] sm:py-3">

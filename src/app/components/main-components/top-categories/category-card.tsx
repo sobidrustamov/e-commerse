@@ -16,7 +16,7 @@ interface Props {
 export const CategoryCard:React.FC<Props> = ({data}) => {
   return (
     <div className='flex justify-between items-center border bg-white p-3'>
-      <Link href='#'>{data.title}</Link>
+      <Link href={`/${data.id}`}>{data.title}</Link>
       <p>{}</p>
       <img width={100} src={data.image} alt={data.title} />
       </div>

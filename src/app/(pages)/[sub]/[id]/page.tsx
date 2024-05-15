@@ -1,11 +1,11 @@
-import React from 'react'
+'use client'
+import React from "react";
+import { NextPage } from "next";
 
-const Sub = () => {
-  return (
-    <div>
-      999
-    </div>
-  )
-}
 
-export default Sub
+const SingleProduct: NextPage<{ params: { id: string } }> = ({ params }) => {
+
+  return <div></div>;
+};
+
+export default SingleProduct;

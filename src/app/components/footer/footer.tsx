@@ -1,22 +1,21 @@
 import Link from "next/link";
 import React from "react";
-import FooterImg from '@/images/footer.png'
+import FooterImg from "@/images/footer.png";
 import Image from "next/image";
-
 
 export const Footer = () => {
   return (
     <div className="bg-slate-100">
       <div className="bg-slate-800 text-white">
         <Link
-          href="/"
+          href="#"
           className="block text-center bg-slate-700 py-5 w-full hover:bg-slate-600"
         >
           Back to Top
         </Link>
         <div className="container grid lg:grid-cols-4 sm:grid-cols-2 grid-cols-1 py-5">
           <ul className="text-sm flex flex-col gap-2">
-            <li className="text-lg my-5">Company Info</li>
+            <li className="text-lg my-3">Company Info</li>
             <li>About us</li>
             <li>Contact us</li>
             <li>Careers</li>

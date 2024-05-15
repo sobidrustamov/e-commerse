@@ -20,7 +20,6 @@ export const getBanner = async (): Promise<BannerData> => {
       next: { revalidate: 60 },
 });
     const data = await res.json();
-console.log(data);
 
     return data;
   } catch (error) {
