@@ -92,3 +92,10 @@
   background: #1677ff;
   border-radius: 10px;
 }
+
+.cart-box {
+  background-image: url("../images/cart-bg.jpg");
+}
+.profile-box {
+  background-image: url("../images/profile.jpg");
+}

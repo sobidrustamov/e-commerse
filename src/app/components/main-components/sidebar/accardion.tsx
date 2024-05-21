@@ -40,7 +40,7 @@ export const AccardionMenu: React.FC<CategoryData> = ({ data }) => {
           </AccordionTrigger>
           {category.children.map((item) => (
             <AccordionContent key={item.id}>
-              <Link href={`/${item.id}`}>{item.title}</Link>{" "}
+              <Link href={`/subcategory/${item.id}`}>{item.title}</Link>{" "}
             </AccordionContent>
           ))}
         </AccordionItem>

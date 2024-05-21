@@ -3,6 +3,8 @@ import OurServices from "./components/main-components/our-services";
 import { LittleBanner } from "./components/main-components/little-banner";
 import { Banner } from "./components/main-components/banner/banner";
 import { TopCategories } from "./components/main-components/top-categories/top-categories";
+import Slider from "./components/main-components/mini-slider/slider";
+import TopProducts from "./components/main-components/mini-slider/top-products";
 
 export default function Home() {
   return (
@@ -23,6 +25,14 @@ export default function Home() {
       </div>
       <div className="container px-[15px] md:px-[30px]">
         <TopCategories />
+      </div>
+      <div className="container flex px-[15px] md:px-[30px] py-5">
+        <div className='w-1/2'>
+        <TopProducts/>  
+        </div>
+        <div className='w-1/2'>
+        <Slider/>  
+        </div>
       </div>
     </main>
   );

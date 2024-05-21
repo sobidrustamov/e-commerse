@@ -10,6 +10,8 @@ import { FaRegTrashAlt } from "react-icons/fa";
 import { remove, toggleAnmount } from "@/redux/product-reducer/cart-reducer";
 import { RootState } from "@/redux/store";
 import { useDispatch, useSelector } from "react-redux";
+import Empty from "@/images/shopping.png";
+import Image from "next/image";
 
 const CartTable = () => {
   const { products, totalCount, totalPrice } = useSelector(
@@ -84,17 +86,19 @@ const CartTable = () => {
               ))}
             </TableBody>
           </Table>
-          <div className="w-1/4 bg-slate-100 p-4 h-[200px]">
-            <h2 className="text-3xl text-center font-medium">Cart Totals</h2>
-            <p className="py-2">Total Count: {totalCount}</p>
-            <p className="py-2">Total Price: $ {totalPrice}</p>
-            <button className="w-full bg-cyan-400 text-white py-2  rounded-lg">
-              Proceed To Checkout
-            </button>
+          <div className="w-1/4 place-content-center">
+            <div className="bg-slate-100 p-4">
+              <h2 className="text-3xl text-center font-medium">Cart Totals</h2>
+              <p className="py-2">Total Count: {totalCount}</p>
+              <p className="py-2">Total Price: $ {totalPrice}</p>
+              <button className="w-full bg-cyan-400 text-white py-2  rounded-lg">
+                Proceed To Checkout
+              </button>
+            </div>
           </div>
         </div>
       ) : (
-        "..."
+        <Image className="max-h-[50vh] object-contain" src={Empty} alt="cart" />
       )}
     </div>
   );

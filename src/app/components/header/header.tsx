@@ -1,45 +1,62 @@
 import React from "react";
 import { SlEarphonesAlt } from "react-icons/sl";
-import { SlLayers } from "react-icons/sl";
+import Link from "next/link";
 import { FaRegStar } from "react-icons/fa";
 import { BsHandbag } from "react-icons/bs";
-import { Badge } from "@/components/ui/badge";
-import Link from "next/link";
 import { InputDemo } from "./components-header/input";
-import { SelectDemo } from "./components-header/select";
-import { ModeToggle } from "./components-header/dark-mode-button";
 import SidebarMobile from "./components-header/sidebar-menu";
 import dynamic from "next/dynamic";
+import { ModeToggle } from "./components-header/dark-mode-button";
+import UserIcon from "./components-header/user-icon";
 const CartCount = dynamic(() => import("./components-header/cart-count"), {
   ssr: false,
 });
-
+const LikeCounter = dynamic(() => import("./components-header/like-counter"), {
+  ssr: false,
+});
 
 export const Header = async () => {
   return (
     <div>
-      <div className="container text-center border-b-2 hidden sm:flex sm:flex-col md:flex-row md:items-center justify-between ">
+      <div className="container text-center border-b-2 hidden py-5 lg:flex lg:items-center justify-between ">
         <p className="text-sm">Welcome to Worldwide Electronics Store</p>
-        <ul className="flex items-center justify-center py-3">
-          <li className="lg:px-5 pr-5 lg:border-e-2">
-            <Link href="#" />
-            My account
+        <ul className="flex gap-5 ">
+          <li>
+            <Link
+              href="#"
+              className="hover:text-regal-blue hover:border-b-2 hover:border-b-regal-blue font-medium"
+            >
+              Home
+            </Link>
           </li>
-          <li className="lg:px-5 pr-5 lg:border-e-2 cursor-pointer hover:underline">
-            <Link href="#" className="" />
-            Checkout
+          <li>
+            <Link
+              href="#"
+              className="hover:text-regal-blue hover:border-b-2 hover:border-b-regal-blue font-medium"
+            >
+              Shop
+            </Link>
           </li>
-          <li className="lg:px-5 pr-5 lg:border-e-2">
-            <Link href="#" />
-            Shop
+          <li>
+            <Link
+              href="#"
+              className="hover:text-regal-blue hover:border-b-2 hover:border-b-regal-blue font-medium"
+            >
+              Blog
+            </Link>
           </li>
-          <li className="lg:ps-5">
-            <Link href="#" />
-            Wishlist
+
+          <li>
+            <Link
+              href="#"
+              className="hover:text-regal-blue hover:border-b-2 hover:border-b-regal-blue font-medium"
+            >
+              Contact
+            </Link>
           </li>
         </ul>
       </div>
-      <div className="container flex justify-between items-center border-b-2 py-5 sm:px-[30px] px-[15px] sm:py-6">
+      <div className="container  flex justify-between items-center border-b-2 py-5 sm:px-[30px] px-[15px] sm:py-6">
         <div>
           <Link href="/" className="text-[36px] font-[900] uppercase">
             Amera
@@ -52,83 +69,34 @@ export const Header = async () => {
             <h3 className="font-semibold">06-900-6789-00</h3>
           </div>
         </div>
-        <form className="hidden w-[45%] lg:flex items-center rounded-[40px] border-2 border-yellow-400 overflow-hidden">
-          {/* <SelectDemo /> */}
+        <form className="hidden w-[45%] lg:flex items-center rounded-[40px] border-2 border-regal-blue overflow-hidden">
           <InputDemo />
-          <label htmlFor="search" className="bg-yellow-400 py-3 px-5">
+          <label htmlFor="search" className="bg-regal-blue py-3 px-5">
             Search
           </label>
         </form>
-        <div className="gap-8 hidden lg:flex">
-          <button>
-            <div className="flex items-start gap-1">
-              <SlLayers className="w-[30px] h-[32px]" />
-              <Badge variant="secondary" className="">
-                0
-              </Badge>
-            </div>
-            <p className="text-sm">Compare</p>
-          </button>
-          <Link href="#">
+        <div className="gap-8 fixed right-0 bottom-0 bg-white flex lg:static dark:bg-black">
+          <Link href="/profile">
+            <UserIcon />
+          </Link>
+          <Link href="/liked">
             <div className="flex items-start gap-1">
               <FaRegStar className="w-[30px] h-[32px]" />
-              <Badge variant="secondary" className="">
-                0
-              </Badge>
+              <LikeCounter />
             </div>
             <p className="text-sm">Favorites</p>
           </Link>
-          <Link href='/cart'>
+          <Link href="/cart">
             <div className="flex items-start gap-1">
               <BsHandbag className="w-[30px] h-[32px]" />
-              <CartCount/>
+              <CartCount />
             </div>
             <p className="text-sm">My Cart</p>
           </Link>
+          <ModeToggle />
         </div>
         <div className="lg:hidden">
           <SidebarMobile />
-        </div>
-      </div>
-      <div className="container hidden lg:flex justify-between items-center border-b-2 sm:shadow-md  sm:px-[30px] px-[15px] sm:py-3">
-        <div>
-          <ul className="flex gap-5">
-            <li className="flex items-center gap-1">
-              <Link href="#" className="hover:text-yellow-400 font-medium">
-                Home
-              </Link>
-              {/* <FaChevronDown size={10} /> */}
-            </li>
-            <li>
-              <Link href="#" className="hover:text-yellow-400 font-medium">
-                Shop
-              </Link>
-            </li>
-            <li>
-              <Link href="#" className="hover:text-yellow-400 font-medium">
-                Blog
-              </Link>
-            </li>
-            <li>
-              <Link href="#" className="hover:text-yellow-400 font-medium">
-                Portfolio
-              </Link>
-            </li>
-            <li>
-              <Link href="#" className="hover:text-yellow-400 font-medium">
-                Contact
-              </Link>
-            </li>
-            <li>
-              <Link href="#" className="hover:text-yellow-400 font-medium">
-                Page
-              </Link>
-            </li>
-          </ul>
-        </div>
-        <div className="flex items-center">
-          <SelectDemo />
-          <ModeToggle />
         </div>
       </div>
     </div>

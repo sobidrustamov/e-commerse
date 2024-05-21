@@ -38,7 +38,7 @@ interface SubProducts {
 export const getSubcategory = async (): Promise<SubCategoryData> => {
   try {
     const res = await fetch("http://135.181.108.207/api/subcategory/", {
-      next: { revalidate: 1 },
+      next: { revalidate: 3600 },
     });
     const data = await res.json();
 
@@ -50,7 +50,7 @@ export const getSubcategory = async (): Promise<SubCategoryData> => {
 export const getSubProducts = async (id:string): Promise<SubProducts> => {
   try {
     const res = await fetch(`http://135.181.108.207/product_variant/?product__category=${id}`, {
-      next: { revalidate: 1 },
+      next: { revalidate: 3600 },
     });
     const data = await res.json();
 

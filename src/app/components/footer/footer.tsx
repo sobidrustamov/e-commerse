@@ -1,18 +1,22 @@
-import Link from "next/link";
+'use client'
 import React from "react";
 import FooterImg from "@/images/footer.png";
 import Image from "next/image";
 
 export const Footer = () => {
+
+  const Scroll=()=>{
+    window.scrollTo({top:0,behavior:'smooth'})
+  }
   return (
     <div className="bg-slate-100">
       <div className="bg-slate-800 text-white">
-        <Link
-          href="#"
-          className="block text-center bg-slate-700 py-5 w-full hover:bg-slate-600"
+        <button
+        onClick={Scroll}  
+        className="block text-center bg-slate-700 py-5 w-full hover:bg-slate-600"
         >
           Back to Top
-        </Link>
+        </button>
         <div className="container grid lg:grid-cols-4 sm:grid-cols-2 grid-cols-1 py-5">
           <ul className="text-sm flex flex-col gap-2">
             <li className="text-lg my-3">Company Info</li>
@@ -58,22 +62,22 @@ export const Footer = () => {
           <p>Copyright © 2019 amera Theme by Lionthemes88</p>
           <ul className="flex gap-3">
             <li>
-              <Link href="#">Site Map</Link>
+              <button>Site Map</button>
             </li>
             <li>
-              <Link href="#">Search Terms</Link>
+              <button>Search Terms</button>
             </li>
             <li>
-              <Link href="#">Advanced Search</Link>
+              <button>Advanced Search</button>
             </li>
             <li>
-              <Link href="#">Contact Us</Link>
+              <button>Contact Us</button>
             </li>
           </ul>
           <div>
-            <Link href="#">
+            <button>
               <Image src={FooterImg} alt="logo" priority />
-            </Link>
+            </button>
           </div>
         </div>
       </div>

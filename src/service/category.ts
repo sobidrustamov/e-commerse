@@ -22,7 +22,7 @@ interface CategoryData {
 export const getCategory = async (): Promise<CategoryData> => {
   try {
     const res = await fetch("http://135.181.108.207/category/", {
-      next: { revalidate: 1 },
+      next: { revalidate: 3600 },
     });
     const data = await res.json();
     console.log(data);

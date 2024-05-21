@@ -1,5 +1,5 @@
-import Link from 'next/link';
-import React from 'react';
+import Link from "next/link";
+import React from "react";
 
 interface Props {
   data: {
@@ -13,12 +13,12 @@ interface Props {
   };
 }
 
-export const CategoryCard:React.FC<Props> = ({data}) => {
+export const CategoryCard: React.FC<Props> = ({ data }) => {
   return (
-    <div className='flex justify-between items-center border bg-white p-3'>
-      <Link href={`/${data.id}`}>{data.title}</Link>
+    <div className="flex justify-between items-center border bg-white p-3">
+      <Link href={`/subcategory/${data.id}`}>{data.title}</Link>
       <p>{}</p>
       <img width={100} src={data.image} alt={data.title} />
-      </div>
-  )
-}
+    </div>
+  );
+};

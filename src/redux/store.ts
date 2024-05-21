@@ -11,6 +11,7 @@ import {
   totalPrice,
   totalCount,
 } from "./product-reducer/cart-reducer";
+import {likeReducer,addToLike, deleteItem,likeCount} from "./product-reducer/like-reducer";
 
 import { saveState } from "@/config/storage";
 
@@ -24,9 +25,17 @@ storageMiddlware.startListening({
   },
 });
 
+storageMiddlware.startListening({
+  matcher: isAnyOf(addToLike, deleteItem),
+  effect: (_action, api) => {
+    api.dispatch(likeCount());
+  },
+});
+
 export const store = configureStore({
   reducer: {
     cart: cartReducer,
+    like: likeReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().prepend(storageMiddlware.middleware),
@@ -34,6 +43,7 @@ export const store = configureStore({
 
 store.subscribe(() => {
   saveState("products", store.getState().cart);
+  saveState("liked-products", store.getState().like);
 });
 
 export type RootState = ReturnType<typeof store.getState>;

@@ -17,7 +17,7 @@ interface BannerData {
 export const getBanner = async (): Promise<BannerData> => {
   try {
     const res = await fetch("http://135.181.108.207/banner/",{      
-      next: { revalidate: 60 },
+      next: { revalidate: 3600 },
 });
     const data = await res.json();
 

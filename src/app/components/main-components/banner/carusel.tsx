@@ -50,7 +50,7 @@ export const CarouselPlugin: React.FC<Props> = ({ data }) => {
                   className="w-full h-[70vh]"
                   src={item.image}
                   alt="banner img"
-                />{" "}
+                />
               </CardContent>
             </Card>
           </CarouselItem>
