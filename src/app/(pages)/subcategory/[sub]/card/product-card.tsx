@@ -30,8 +30,8 @@ const ProductCard: React.FC<Props> = ({ data, parent }) => {
   const dispatch = useDispatch();
   const { products } = useSelector((state: RootState) => state.like);
   const { products:cart } = useSelector((state: RootState) => state.cart);
-  const like = products.find((item) => item.id === data.id);
-  const cartItem = cart.find((item) => item.id === data.id);
+  const like = products.find((item:any) => item.id === data.id);
+  const cartItem = cart.find((item:any) => item.id === data.id);
 
   const addItem = () => {
     dispatch(addToCart({ ...data, userCount: 0, userPrice: 0 }));
